@@ -13,10 +13,12 @@ function markup(marker) {
 }
 
 function parse(text) {
-  text = _parse(LINK_PATTERN, text, (captures) => {
-    return new Node(`link`)
-      .with({ uri: uri(captures[0]), desc: captures[1] })
-  })
+  text = _parse(LINK_PATTERN, text, function (captures) {
+    return new _node2.default('link').with({
+      uri: (0, _uri2.default)(captures[0]),
+      desc: captures[1] || captures[0]
+    });
+  });
 
   text = _parse(FOOTNOTE_PATTERN, text, (captures) => {
     return new Node(`footnote.reference`)
