@@ -2,6 +2,7 @@ import Node from './node'
 import uri from './uri'
 
 const LINK_PATTERN = /(.*?)\[\[([^\]]*)\](?:\[([^\]]*)\])?\](.*)/m; // \1 => link, \2 => text
+const URI_PATTERN = /(.*?)((?:ftp|http|https):\/\/\S+)(.*)/;
 const FOOTNOTE_PATTERN = /(.*?)\[fn:(\w+)\](.*)/
 
 const PRE = `(?:[\\s\\({'"]|^)`
@@ -19,6 +20,10 @@ function parse(text) {
       desc: captures[1] || captures[0]
     });
   });
+  
+  text = _parse(URI_PATTERN, text, function(captures) {
+    return new _node2.default('link').with({ uri: captures[0], desc: captures[0]});
+  })
 
   text = _parse(FOOTNOTE_PATTERN, text, (captures) => {
     return new Node(`footnote.reference`)
