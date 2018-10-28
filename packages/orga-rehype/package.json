@@ -1,6 +1,6 @@
 {
   "name": "orga-rehype",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "description": "rehype support for orga",
   "files": [
     "lib"
@@ -17,10 +17,10 @@
   "scripts": {
     "build": "babel src --out-dir lib --ignore __tests__",
     "watch": "babel -w src --out-dir lib --ignore __tests__",
-    "test": "yarn jest",
+    "test": "jest",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "dependencies": {
-    "oast-to-hast": "^0.5.2"
+    "oast-to-hast": "^0.5.4"
   }
 }

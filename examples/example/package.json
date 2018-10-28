@@ -1,21 +1,20 @@
 {
   "private": true,
   "name": "example",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "node index.js < README.org > readme.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "orga-rehype": "^0.5.2",
-    "orga-unified": "^0.5.3",
-    "rehype-document": "^2.0.1",
-    "rehype-stringify": "^3.0.0",
-    "to-vfile": "^2.1.2",
-    "unified": "^6.1.6",
-    "vfile-reporter": "^4.0.0"
+    "orga-rehype": "^0.5.4",
+    "orga-unified": "^0.5.4",
+    "rehype-stringify": "^4.0.0",
+    "unified": "^7.0.0",
+    "unified-stream": "^1.0.2"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "orga-unified",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "orga parser for unifiedjs",
   "files": [
     "lib"
@@ -12,7 +12,7 @@
   "scripts": {
     "build": "babel src --out-dir lib --ignore __tests__",
     "watch": "babel -w src --out-dir lib --ignore __tests__",
-    "test": "yarn jest",
+    "test": "jest",
     "prepare": "cross-env NODE_ENV=production npm run build"
   },
   "devDependencies": {
@@ -21,6 +21,6 @@
     "jest": "^23.4.1"
   },
   "dependencies": {
-    "orga": "^0.5.3"
+    "orga": "^0.5.4"
   }
 }
