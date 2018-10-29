@@ -14,6 +14,8 @@ function block(h, node) {
     return undefined
   case `CENTER`:
     return center(h, node)
+    case `TRANSCLUDE`:
+      return transclude(h, node)
   default:
     const props = { className: name.toLowerCase() }
     return h(node, `pre`, props, [u('text', node.value || '')])
@@ -46,4 +48,21 @@ function src(h, node) {
   return h(node, `pre`, [
     h(node, `code`, props, [body])
   ])
+}
+
+function transclude(h, node) {
+  const transcludeSource = node.params[0];
+  var startLine = 1;
+  if(node.params.length > 1) {
+    var spl = node.params[node.params.length-1].split('-')
+    startLine = parseInt(spl[spl.length-1])
+  }
+  var props = {
+    className: "orgajs-transclude-block",
+    "data-source": transcludeSource,
+    "data-line": startLine
+  }
+
+  var body = u(`text`, node.value)
+  return h(node, `div`, props, [body])
 }
